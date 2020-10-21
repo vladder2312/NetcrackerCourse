@@ -1,3 +1,5 @@
+import org.apache.commons.lang3.ArrayUtils;
+
 public class ContractRepository {
     private Contract[] contracts;
     private int amount;
@@ -31,5 +33,17 @@ public class ContractRepository {
             contracts[amount]=contract;
         }
         amount++;
+    }
+
+    public void deleteContract(Contract contract){
+        contracts = ArrayUtils.removeElement(contracts, contract);
+    }
+
+    public void deleteContract(long id){
+        for(Contract c: contracts){
+            if(c.getId()==id){
+                contracts = ArrayUtils.removeElement(contracts, c);
+            }
+        }
     }
 }
