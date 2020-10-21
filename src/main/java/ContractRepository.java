@@ -26,6 +26,7 @@ public class ContractRepository {
             System.arraycopy(contracts, 0, biggerMassive, 0, contracts.length);
             biggerMassive[amount]=contract;
             contracts = biggerMassive;
+            System.out.println("Massive length = "+contracts.length);
         } else {
             contracts[amount]=contract;
         }

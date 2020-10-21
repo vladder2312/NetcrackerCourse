@@ -1,12 +1,15 @@
-import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Contract {
     private final long id;
-    private Date startDate;
-    private Date endDate;
+    private Calendar startDate;
+    private Calendar endDate;
     private Client client;
+    private final DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 
-    public Contract(long id, Date startDate, Date endDate, Client client) {
+    public Contract(long id, Calendar startDate, Calendar endDate, Client client) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -17,19 +20,19 @@ public class Contract {
         return id;
     }
 
-    public Date getStartDate() {
+    public Calendar getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(Calendar startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public Calendar getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(Calendar endDate) {
         this.endDate = endDate;
     }
 
@@ -39,5 +42,19 @@ public class Contract {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public DateFormat getDateFormat() {
+        return dateFormat;
+    }
+
+    @Override
+    public String toString() {
+        return "Контракт {" +
+                "ID: " + id +
+                ", Start date: " + dateFormat.format(startDate.getTime()) +
+                ", End date: " + dateFormat.format(endDate.getTime()) +
+                ", Client: " + client +
+                '}';
     }
 }
