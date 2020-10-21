@@ -1,5 +1,6 @@
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.UUID;
 
 public class Main {
     private static final ContractRepository repository = new ContractRepository();
@@ -13,7 +14,7 @@ public class Main {
 
     private static Contract createRandomContract() {
         Contract contract = null;
-        long id = System.currentTimeMillis();
+        int id = UUID.randomUUID().hashCode();
         Calendar start = new GregorianCalendar(2000 + (int) (Math.random() * 20), (int) (Math.random() * 12), (int) (Math.random() * 29));
         Calendar end = (Calendar) start.clone();
         end.add(Calendar.YEAR, (int) (Math.random() * 10));
