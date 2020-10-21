@@ -1,25 +1,27 @@
 import java.util.Calendar;
-import java.util.Date;
 
+/**
+ * Television contract entity
+ */
 public class TeleContract extends Contract {
-    private ChanelKit chanelKit;
+    private ChannelPackage channelPackage;
 
-    public TeleContract(long id, Calendar startDate, Calendar endDate, Client client, ChanelKit chanelKit) {
+    public TeleContract(long id, Calendar startDate, Calendar endDate, Client client, ChannelPackage channelPackage) {
         super(id, startDate, endDate, client);
-        this.chanelKit = chanelKit;
+        this.channelPackage = channelPackage;
     }
 
-    public ChanelKit getChanelKit() {
-        return chanelKit;
+    public ChannelPackage getChanelKit() {
+        return channelPackage;
     }
 
-    public void setChanelKit(ChanelKit chanelKit) {
-        this.chanelKit = chanelKit;
+    public void setChanelKit(ChannelPackage channelPackage) {
+        this.channelPackage = channelPackage;
     }
 
     @Override
     public String toString() {
-        return "Контракт {" +
+        return "Contract{" +
                 "ID: " + getId() +
                 ", Start date: " + getDateFormat().format(getStartDate().getTime()) +
                 ", End date: " + getDateFormat().format(getEndDate().getTime()) +

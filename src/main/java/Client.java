@@ -2,6 +2,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+/**
+ * Client entity
+ */
 public class Client {
     private final long id;
     private Calendar birth;
@@ -56,7 +59,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Клиент{" +
+        return "Client{" +
                 "ID: " + id +
                 ", Birth date: " + dateFormat.format(birth.getTime()) +
                 ", Full name: " + fio +

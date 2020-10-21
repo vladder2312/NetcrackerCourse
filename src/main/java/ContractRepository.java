@@ -1,7 +1,18 @@
 import org.apache.commons.lang3.ArrayUtils;
 
+/**
+ * Repository for storing contracts
+ */
 public class ContractRepository {
+
+    /**
+     * Array of contracts
+     */
     private Contract[] contracts;
+
+    /**
+     * Amount of contracts in repository
+     * */
     private int amount;
 
     public ContractRepository() {
@@ -9,10 +20,15 @@ public class ContractRepository {
         amount = 0;
     }
 
-    public Contract[] getAllContracts() {
+    public Contract[] getContracts() {
         return contracts;
     }
 
+    /**
+     * Get a contract by its ID
+     * @param id contract ID
+     * @return contract with a specified ID
+     * */
     public Contract getContractByID(long id) {
         for (Contract c: contracts) {
             if(c.getId()==id){
@@ -22,6 +38,10 @@ public class ContractRepository {
         return null;
     }
 
+    /**
+     * Add a contract to repository
+     * @param contract new contract
+     * */
     public void addContract(Contract contract){
         if(amount==contracts.length){
             Contract[] biggerMassive = new Contract[contracts.length+5];
@@ -35,10 +55,18 @@ public class ContractRepository {
         amount++;
     }
 
+    /**
+     * Remove a contract from repository
+     * @param contract contract that need to be removed
+     * */
     public void deleteContract(Contract contract){
         contracts = ArrayUtils.removeElement(contracts, contract);
     }
 
+    /**
+     * Remove a contract from repository
+     * @param id id of contract that need to be removed
+     * */
     public void deleteContract(long id){
         for(Contract c: contracts){
             if(c.getId()==id){

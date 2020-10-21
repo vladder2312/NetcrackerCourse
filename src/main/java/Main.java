@@ -2,16 +2,32 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.UUID;
 
+/**
+ * @author Vladislav_Styazhkin
+ * @version 1.0
+ */
 public class Main {
+
+    /**
+     * Repository that contains contracts
+     */
     private static final ContractRepository repository = new ContractRepository();
 
+    /**
+     * Start point of the program
+     * @param args command line values
+     */
     public static void main(String[] args) {
         fillRepository(50);
-        for (Contract c: repository.getAllContracts()) {
+        for (Contract c: repository.getContracts()) {
             System.out.println(c);
         }
     }
 
+    /**
+     * Creates new randomly generated contract
+     * @return new contract
+     */
     private static Contract createRandomContract() {
         Contract contract = null;
         int id = UUID.randomUUID().hashCode();
@@ -43,7 +59,7 @@ public class Main {
                     start,
                     end,
                     client,
-                    ChanelKit.values()[(int) (Math.random() * ChanelKit.values().length)]
+                    ChannelPackage.values()[(int) (Math.random() * ChannelPackage.values().length)]
             );
             case 2 -> contract = new InternetContract(
                     id,
@@ -56,8 +72,12 @@ public class Main {
         return contract;
     }
 
-    private static void fillRepository(int count) {
-        for (int i = 0; i < count; i++) {
+    /**
+     * Fills the contracts repository
+     * @param amount amount of contracts
+     */
+    private static void fillRepository(int amount) {
+        for (int i = 0; i < amount; i++) {
             repository.addContract(createRandomContract());
         }
     }

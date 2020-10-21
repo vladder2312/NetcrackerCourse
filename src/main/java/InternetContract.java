@@ -1,7 +1,14 @@
 import java.util.Calendar;
 
+/**
+ * Internet contract entity
+ */
 public class InternetContract extends Contract {
-    private int speed; //МБит
+
+    /**
+     * Internet speed under the contract. Measured in megabits.
+     * */
+    private int speed;
 
     public InternetContract(long id, Calendar startDate, Calendar endDate, Client client, int speed) {
         super(id, startDate, endDate, client);
@@ -18,7 +25,7 @@ public class InternetContract extends Contract {
 
     @Override
     public String toString() {
-        return "Контракт {" +
+        return "Contract{" +
                 "ID: " + getId() +
                 ", Start date: " + getDateFormat().format(getStartDate().getTime()) +
                 ", End date: " + getDateFormat().format(getEndDate().getTime()) +

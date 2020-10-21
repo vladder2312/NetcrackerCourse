@@ -1,4 +1,7 @@
-public enum ChanelKit {
+/**
+ * Channel package enumeration
+ */
+public enum ChannelPackage {
     MINIMUM,
     DEFAULT,
     KIDS,

@@ -2,7 +2,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Data for generating objects
+ */
 public class Data {
+
+    /**
+     * List of full names
+     */
     public static List<String> fioList = new ArrayList<>(Arrays.asList(
             "Захаров Максимилиан Романович", "Воронцов Витольд Федосеевич",
             "Бирюков Арсен Анатольевич", "Шилов Ибрагил Павлович",

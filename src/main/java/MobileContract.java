@@ -1,6 +1,8 @@
 import java.util.Calendar;
-import java.util.Date;
 
+/**
+ * Mobile contract entity
+ */
 public class MobileContract extends Contract{
     private int minutes;
     private int megaBytes;
@@ -39,7 +41,7 @@ public class MobileContract extends Contract{
 
     @Override
     public String toString() {
-        return "Контракт {" +
+        return "Contract{" +
                 "ID: " + getId() +
                 ", Start date: " + getDateFormat().format(getStartDate().getTime()) +
                 ", End date: " + getDateFormat().format(getEndDate().getTime()) +

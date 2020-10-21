@@ -2,6 +2,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+/**
+ * Contract entity
+ */
 public class Contract {
     private final long id;
     private Calendar startDate;
@@ -50,7 +53,7 @@ public class Contract {
 
     @Override
     public String toString() {
-        return "Контракт {" +
+        return "Contract{" +
                 "ID: " + id +
                 ", Start date: " + dateFormat.format(startDate.getTime()) +
                 ", End date: " + dateFormat.format(endDate.getTime()) +
