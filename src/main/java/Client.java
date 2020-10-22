@@ -1,3 +1,6 @@
+import org.joda.time.LocalDate;
+import org.joda.time.Years;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -11,6 +14,7 @@ public class Client {
     private String fio;
     private String gender;
     private String passport;
+    private int age;
     private final DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 
     public Client(long id, Calendar birth, String fio, String gender, String passport) {
@@ -19,6 +23,7 @@ public class Client {
         this.fio = fio;
         this.gender = gender;
         this.passport = passport;
+        age = Years.yearsBetween(new LocalDate(birth.getTimeInMillis()), LocalDate.now()).getYears();
     }
 
     public long getId() {
@@ -31,6 +36,7 @@ public class Client {
 
     public void setBirth(Calendar birth) {
         this.birth = birth;
+        age = Years.yearsBetween(new LocalDate(birth.getTimeInMillis()), LocalDate.now()).getYears();
     }
 
     public String getFio() {
@@ -57,6 +63,10 @@ public class Client {
         this.passport = passport;
     }
 
+    public int getAge() {
+        return age;
+    }
+
     @Override
     public String toString() {
         return "Client{" +
@@ -65,6 +75,7 @@ public class Client {
                 ", Full name: " + fio +
                 ", Gender: " + gender +
                 ", Passport: " + passport +
+                ", Age: " + age +
                 '}';
     }
 }

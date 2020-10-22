@@ -7,7 +7,7 @@ public class InternetContract extends Contract {
 
     /**
      * Internet speed under the contract. Measured in megabits.
-     * */
+     */
     private int speed;
 
     public InternetContract(long id, Calendar startDate, Calendar endDate, Client client, int speed) {

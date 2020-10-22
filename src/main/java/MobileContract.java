@@ -3,7 +3,7 @@ import java.util.Calendar;
 /**
  * Mobile contract entity
  */
-public class MobileContract extends Contract{
+public class MobileContract extends Contract {
     private int minutes;
     private int megaBytes;
     private int sms;

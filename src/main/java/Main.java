@@ -15,17 +15,19 @@ public class Main {
 
     /**
      * Start point of the program
+     *
      * @param args command line values
      */
     public static void main(String[] args) {
         fillRepository(50);
-        for (Contract c: repository.getContracts()) {
+        for (Contract c : repository.getContracts()) {
             System.out.println(c);
         }
     }
 
     /**
      * Creates new randomly generated contract
+     *
      * @return new contract
      */
     private static Contract createRandomContract() {
@@ -37,10 +39,10 @@ public class Main {
         end.add(Calendar.MONTH, (int) (Math.random() * 12));
         end.add(Calendar.DAY_OF_MONTH, (int) (Math.random() * 31));
         Client client = new Client(
-                System.currentTimeMillis(),
-                new GregorianCalendar(2000 + (int) (Math.random() * 20), (int) (Math.random() * 12), (int) (Math.random() * 29)),
+                UUID.randomUUID().hashCode(),
+                new GregorianCalendar(1950 + (int) (Math.random() * 50), (int) (Math.random() * 12), (int) (Math.random() * 29)),
                 Data.fioList.get((int) (Math.random() * Data.fioList.size())),
-                Math.random() * 2 > 1 ? "Мужской" : "Женский",
+                Math.random() * 2 > 1 ? "Male" : "Female",
                 (1000 + (int) (Math.random() * 9000)) + " " + (100000 + (int) (Math.random() * 900000))
         );
 
@@ -74,6 +76,7 @@ public class Main {
 
     /**
      * Fills the contracts repository
+     *
      * @param amount amount of contracts
      */
     private static void fillRepository(int amount) {
