@@ -24,6 +24,10 @@ public class ContractRepository {
         return contracts;
     }
 
+    public int getAmount() {
+        return amount;
+    }
+
     /**
      * Get a contract by its ID
      * @param id contract ID
@@ -31,7 +35,7 @@ public class ContractRepository {
      * */
     public Contract getContractByID(long id) {
         for (Contract c: contracts) {
-            if(c.getId()==id){
+            if(c!=null && c.getId()==id){
                 return c;
             }
         }
@@ -57,20 +61,13 @@ public class ContractRepository {
 
     /**
      * Remove a contract from repository
-     * @param contract contract that need to be removed
-     * */
-    public void deleteContract(Contract contract){
-        contracts = ArrayUtils.removeElement(contracts, contract);
-    }
-
-    /**
-     * Remove a contract from repository
      * @param id id of contract that need to be removed
      * */
     public void deleteContract(long id){
         for(Contract c: contracts){
-            if(c.getId()==id){
+            if(c!=null && c.getId()==id){
                 contracts = ArrayUtils.removeElement(contracts, c);
+                return;
             }
         }
     }
