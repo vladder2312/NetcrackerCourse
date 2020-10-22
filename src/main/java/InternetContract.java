@@ -1,18 +1,35 @@
-import java.util.Date;
+import java.util.Calendar;
 
+/**
+ * Internet contract entity
+ */
 public class InternetContract extends Contract {
-    private double speed; //МБит
 
-    public InternetContract(long id, Date startDate, Date endDate, Client client, double speed) {
+    /**
+     * Internet speed under the contract. Measured in megabits.
+     * */
+    private int speed;
+
+    public InternetContract(long id, Calendar startDate, Calendar endDate, Client client, int speed) {
         super(id, startDate, endDate, client);
         this.speed = speed;
     }
 
-    public double getSpeed() {
+    public int getSpeed() {
         return speed;
     }
 
-    public void setSpeed(double speed) {
+    public void setSpeed(int speed) {
         this.speed = speed;
+    }
+
+    @Override
+    public String toString() {
+        return "Contract{" +
+                "ID: " + getId() +
+                ", Start date: " + getDateFormat().format(getStartDate().getTime()) +
+                ", End date: " + getDateFormat().format(getEndDate().getTime()) +
+                ", Client: " + getClient() +
+                '}';
     }
 }

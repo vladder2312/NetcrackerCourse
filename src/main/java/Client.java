@@ -1,13 +1,19 @@
-import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
+/**
+ * Client entity
+ */
 public class Client {
     private final long id;
-    private Date birth;
+    private Calendar birth;
     private String fio;
     private String gender;
     private String passport;
+    private final DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 
-    public Client(long id, Date birth, String fio, String gender, String passport) {
+    public Client(long id, Calendar birth, String fio, String gender, String passport) {
         this.id = id;
         this.birth = birth;
         this.fio = fio;
@@ -19,11 +25,11 @@ public class Client {
         return id;
     }
 
-    public Date getBirth() {
+    public Calendar getBirth() {
         return birth;
     }
 
-    public void setBirth(Date birth) {
+    public void setBirth(Calendar birth) {
         this.birth = birth;
     }
 
@@ -49,5 +55,16 @@ public class Client {
 
     public void setPassport(String passport) {
         this.passport = passport;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "ID: " + id +
+                ", Birth date: " + dateFormat.format(birth.getTime()) +
+                ", Full name: " + fio +
+                ", Gender: " + gender +
+                ", Passport: " + passport +
+                '}';
     }
 }

@@ -1,11 +1,14 @@
-import java.util.Date;
+import java.util.Calendar;
 
+/**
+ * Mobile contract entity
+ */
 public class MobileContract extends Contract{
     private int minutes;
     private int megaBytes;
     private int sms;
 
-    public MobileContract(long id, Date startDate, Date endDate, Client client, int minutes, int megaBytes, int sms) {
+    public MobileContract(long id, Calendar startDate, Calendar endDate, Client client, int minutes, int megaBytes, int sms) {
         super(id, startDate, endDate, client);
         this.minutes = minutes;
         this.megaBytes = megaBytes;
@@ -34,5 +37,15 @@ public class MobileContract extends Contract{
 
     public void setSms(int sms) {
         this.sms = sms;
+    }
+
+    @Override
+    public String toString() {
+        return "Contract{" +
+                "ID: " + getId() +
+                ", Start date: " + getDateFormat().format(getStartDate().getTime()) +
+                ", End date: " + getDateFormat().format(getEndDate().getTime()) +
+                ", Client: " + getClient() +
+                '}';
     }
 }
