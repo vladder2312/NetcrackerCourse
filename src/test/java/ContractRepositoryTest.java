@@ -1,10 +1,14 @@
+import netcracker.Client;
+import netcracker.Data;
+import netcracker.contract.Contract;
+import netcracker.contract.ContractRepository;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 import java.util.Calendar;
 
 /**
- * ContractRepository Tester.
+ * netcracker.contract.ContractRepository Tester.
  *
  * @author <Authors name>
  * @since <pre>окт. 22, 2020</pre>
@@ -22,13 +26,13 @@ public class ContractRepositoryTest {
                         123,
                         Calendar.getInstance(),
                         Calendar.getInstance(),
-                        new Client(111, Calendar.getInstance(),Data.fioList.get(0),"gender", "1234 123456"))
+                        new Client(111, Calendar.getInstance(), Data.fioList.get(0),"gender", "1234 123456"))
         );
         assertNotNull(repository.getContractByID(123));
     }
 
     /**
-     * Method: addContract(Contract contract)
+     * Method: addContract(netcracker.contract.Contract netcracker.contract)
      */
     @Test
     public void testAddContract(){

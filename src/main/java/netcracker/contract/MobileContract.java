@@ -1,3 +1,7 @@
+package netcracker.contract;
+
+import netcracker.Client;
+
 import java.util.Calendar;
 
 /**
@@ -41,11 +45,11 @@ public class MobileContract extends Contract {
 
     @Override
     public String toString() {
-        return "Contract{" +
+        return "netcracker.contract.Contract{" +
                 "ID: " + getId() +
                 ", Start date: " + getDateFormat().format(getStartDate().getTime()) +
                 ", End date: " + getDateFormat().format(getEndDate().getTime()) +
-                ", Client: " + getClient() +
+                ", netcracker.Client: " + getClient() +
                 '}';
     }
 }

@@ -1,3 +1,5 @@
+package netcracker.contract;
+
 import org.apache.commons.lang3.ArrayUtils;
 
 /**
@@ -29,10 +31,10 @@ public class ContractRepository {
     }
 
     /**
-     * Get a contract by its ID
+     * Get a netcracker.contract by its ID
      *
-     * @param id contract ID
-     * @return contract with a specified ID
+     * @param id netcracker.contract ID
+     * @return netcracker.contract with a specified ID
      */
     public Contract getContractByID(long id) {
         for (Contract c : contracts) {
@@ -44,9 +46,9 @@ public class ContractRepository {
     }
 
     /**
-     * Add a contract to repository
+     * Add a netcracker.contract to repository
      *
-     * @param contract new contract
+     * @param contract new netcracker.contract
      */
     public void addContract(Contract contract) {
         if (amount == contracts.length) {
@@ -62,9 +64,9 @@ public class ContractRepository {
     }
 
     /**
-     * Remove a contract from repository
+     * Remove a netcracker.contract from repository
      *
-     * @param id id of contract that need to be removed
+     * @param id id of netcracker.contract that need to be removed
      */
     public void deleteContract(long id) {
         for (Contract c : contracts) {

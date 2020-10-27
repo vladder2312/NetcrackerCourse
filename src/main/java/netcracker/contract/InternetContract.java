@@ -1,3 +1,7 @@
+package netcracker.contract;
+
+import netcracker.Client;
+
 import java.util.Calendar;
 
 /**
@@ -6,7 +10,7 @@ import java.util.Calendar;
 public class InternetContract extends Contract {
 
     /**
-     * Internet speed under the contract. Measured in megabits.
+     * Internet speed under the netcracker.contract. Measured in megabits.
      */
     private int speed;
 
@@ -25,11 +29,11 @@ public class InternetContract extends Contract {
 
     @Override
     public String toString() {
-        return "Contract{" +
+        return "netcracker.contract.Contract{" +
                 "ID: " + getId() +
                 ", Start date: " + getDateFormat().format(getStartDate().getTime()) +
                 ", End date: " + getDateFormat().format(getEndDate().getTime()) +
-                ", Client: " + getClient() +
+                ", netcracker.Client: " + getClient() +
                 '}';
     }
 }

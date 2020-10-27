@@ -1,3 +1,5 @@
+package netcracker;
+
 import org.joda.time.LocalDate;
 import org.joda.time.Years;
 
@@ -69,7 +71,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{" +
+        return "netcracker.Client{" +
                 "ID: " + id +
                 ", Birth date: " + dateFormat.format(birth.getTime()) +
                 ", Full name: " + fio +

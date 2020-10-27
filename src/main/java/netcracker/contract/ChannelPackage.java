@@ -1,3 +1,5 @@
+package netcracker.contract;
+
 /**
  * Channel package enumeration
  */
