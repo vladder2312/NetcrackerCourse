@@ -1,9 +1,13 @@
+package netcracker.contract;
+
+import netcracker.Client;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
- * Contract entity
+ * contract.Contract entity
  */
 public class Contract {
     private final long id;
@@ -53,11 +57,11 @@ public class Contract {
 
     @Override
     public String toString() {
-        return "Contract{" +
+        return "netcracker.contract.Contract{" +
                 "ID: " + id +
                 ", Start date: " + dateFormat.format(startDate.getTime()) +
                 ", End date: " + dateFormat.format(endDate.getTime()) +
-                ", Client: " + client +
+                ", netcracker.Client: " + client +
                 '}';
     }
 }

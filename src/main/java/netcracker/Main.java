@@ -1,3 +1,7 @@
+package netcracker;
+
+import netcracker.contract.*;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.UUID;
@@ -26,9 +30,9 @@ public class Main {
     }
 
     /**
-     * Creates new randomly generated contract
+     * Creates new randomly generated netcracker.contract
      *
-     * @return new contract
+     * @return new netcracker.contract
      */
     private static Contract createRandomContract() {
         Contract contract = null;
