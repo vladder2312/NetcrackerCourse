@@ -25,11 +25,11 @@ public class TeleContract extends Contract {
 
     @Override
     public String toString() {
-        return "netcracker.contract.Contract{" +
+        return "TeleContract{" +
                 "ID: " + getId() +
                 ", Start date: " + getDateFormat().format(getStartDate().getTime()) +
                 ", End date: " + getDateFormat().format(getEndDate().getTime()) +
-                ", netcracker.Client: " + getClient() +
+                ", Client: " + getClient() +
                 '}';
     }
 }

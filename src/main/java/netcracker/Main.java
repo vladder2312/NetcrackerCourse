@@ -8,7 +8,7 @@ import java.util.UUID;
 
 /**
  * @author Vladislav_Styazhkin
- * @version 1.0
+ * @version 1.1
  */
 public class Main {
 
@@ -30,9 +30,9 @@ public class Main {
     }
 
     /**
-     * Creates new randomly generated netcracker.contract
+     * Creates new randomly generated contract
      *
-     * @return new netcracker.contract
+     * @return new contract
      */
     private static Contract createRandomContract() {
         Contract contract = null;

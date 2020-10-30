@@ -71,7 +71,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return "netcracker.Client{" +
+        return "Client{" +
                 "ID: " + id +
                 ", Birth date: " + dateFormat.format(birth.getTime()) +
                 ", Full name: " + fio +
