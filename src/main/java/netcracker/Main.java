@@ -19,7 +19,6 @@ public class Main {
      * @param args command line values
      */
     public static void main(String[] args) {
-        System.out.println(ChannelPackage.KIDS.toString());
         repository.fillRepository(50);
         for (Contract c : repository.getContracts()) {
             System.out.println(c);
