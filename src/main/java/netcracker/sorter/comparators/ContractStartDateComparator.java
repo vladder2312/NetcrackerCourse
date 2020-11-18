@@ -11,7 +11,7 @@ public class ContractStartDateComparator implements Comparator<Contract> {
     public int compare(Contract o1, Contract o2) {
         if (o1.getStartDate().after(o2.getStartDate())) {
             return 1;
-        } else if (o2.getStartDate().before(o2.getStartDate())) {
+        } else if (o1.getStartDate().before(o2.getStartDate())) {
             return -1;
         } else return 0;
     }

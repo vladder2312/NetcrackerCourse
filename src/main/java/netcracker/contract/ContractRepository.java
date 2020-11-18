@@ -2,11 +2,10 @@ package netcracker.contract;
 
 import netcracker.Client;
 import netcracker.Data;
+import netcracker.sorter.ISorter;
 import org.apache.commons.lang3.ArrayUtils;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Repository for storing contracts
@@ -91,6 +90,10 @@ public class ContractRepository {
                 return;
             }
         }
+    }
+
+    public void sort(ISorter sorter, Comparator<Contract> comparator) {
+        sorter.sort(getContracts(), comparator);
     }
 
     /**
