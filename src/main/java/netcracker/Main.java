@@ -10,7 +10,11 @@ import netcracker.sorter.comparators.ContractEndDateComparator;
 import netcracker.sorter.comparators.ContractIdComparator;
 import netcracker.sorter.comparators.ContractStartDateComparator;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.function.Predicate;
 
 /**
  * @author Vladislav_Styazhkin
@@ -43,7 +47,57 @@ public class Main {
     }
 
     private static void searchDialog() {
+        List<Predicate<Contract>> predicates = new ArrayList<>();
+        int select;
+        DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+        Date date;
 
+        do {
+            System.out.print("Выбрите критерии поиска:\n1. ID\n2. Дата начала\n3. Дата конца\n4. ФИО клиента\n5. Готово\n>");
+            select = in.nextInt();
+            if(select==5) break;
+            System.out.print("Введите значение >");
+            switch (select) {
+                case 1 -> {
+                    long id = in.nextLong();
+                    predicates.add(contract -> contract.getId() == id);
+                }
+                case 2 -> {
+                    try {
+                        date = df.parse(in.next());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                        System.out.println("Ошибка ввода");
+                        return;
+                    }
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTime(date);
+                    predicates.add(contract -> contract.getStartDate().equals(calendar));
+                }
+                case 3 -> {
+                    try {
+                        date = df.parse(in.next());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                        System.out.println("Ошибка ввода");
+                        return;
+                    }
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTime(date);
+                    predicates.add(contract -> contract.getEndDate().equals(calendar));
+                }
+                case 4 -> {
+                    in.nextLine();
+                    String fio = in.nextLine();
+                    predicates.add(contract -> contract.getClient().getFio().toLowerCase().contains(fio.toLowerCase()));
+                }
+                default -> System.out.println("Ошибка ввода");
+            }
+        } while (true);
+        System.out.println("Найденные контракты: ");
+        for(Contract c : repository.searchContract(predicates)){
+            System.out.println(c);
+        }
     }
 
     private static void sortDialog() {

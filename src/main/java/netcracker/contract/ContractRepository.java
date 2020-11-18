@@ -6,6 +6,7 @@ import netcracker.sorter.ISorter;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.*;
+import java.util.function.Predicate;
 
 /**
  * Repository for storing contracts
@@ -106,9 +107,9 @@ public class ContractRepository {
         int id = UUID.randomUUID().hashCode();
         Calendar start = new GregorianCalendar(2000 + (int) (Math.random() * 20), (int) (Math.random() * 12), (int) (Math.random() * 29));
         Calendar end = (Calendar) start.clone();
-        end.add(Calendar.YEAR, (int) (Math.random() * 10));
-        end.add(Calendar.MONTH, (int) (Math.random() * 12));
-        end.add(Calendar.DAY_OF_MONTH, (int) (Math.random() * 31));
+        end.add(Calendar.YEAR, (int) (1 + Math.random() * 10));
+        end.add(Calendar.MONTH, (int) (1 + Math.random() * 12));
+        end.add(Calendar.DAY_OF_MONTH, (int) (1 + (Math.random() * 31)));
         Client client = new Client(
                 UUID.randomUUID().hashCode(),
                 new GregorianCalendar(1950 + (int) (Math.random() * 50), (int) (Math.random() * 12), (int) (Math.random() * 29)),
@@ -143,5 +144,18 @@ public class ContractRepository {
             );
         }
         return contract;
+    }
+
+    public List<Contract> searchContract(List<Predicate<Contract>> predicates) {
+        List<Contract> foundContracts = new ArrayList<>();
+        boolean found;
+        for (Contract c : contracts) {
+            found = true;
+            for (Predicate<Contract> p : predicates) {
+                if (!p.test(c)) found = false;
+            }
+            if (found) foundContracts.add(c);
+        }
+        return foundContracts;
     }
 }
