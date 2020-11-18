@@ -4,6 +4,9 @@ import netcracker.contract.Contract;
 
 import java.util.Comparator;
 
+/**
+ * Client fullName comparator
+ * */
 public class ContractClientFioComparator implements Comparator<Contract> {
 
     @Override

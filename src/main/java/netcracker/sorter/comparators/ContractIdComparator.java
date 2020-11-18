@@ -4,6 +4,9 @@ import netcracker.contract.Contract;
 
 import java.util.Comparator;
 
+/**
+ * Id comparator
+ */
 public class ContractIdComparator implements Comparator<Contract> {
 
     @Override

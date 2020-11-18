@@ -4,6 +4,9 @@ import netcracker.contract.MobileContract;
 
 import java.util.Comparator;
 
+/**
+ * SMS quantity comparator
+ */
 public class MobileContractSmsComparator implements Comparator<MobileContract> {
 
     @Override

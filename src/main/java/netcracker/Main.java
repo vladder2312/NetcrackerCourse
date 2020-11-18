@@ -46,6 +46,9 @@ public class Main {
         }
     }
 
+    /**
+     * Dialog with the user to initialize the search parameters
+     * */
     private static void searchDialog() {
         List<Predicate<Contract>> predicates = new ArrayList<>();
         int select;
@@ -100,6 +103,9 @@ public class Main {
         }
     }
 
+    /**
+     * Dialog with the user to initialize the sort parameters
+     * */
     private static void sortDialog() {
         ISorter sorter;
         Comparator<Contract> comparator;
@@ -127,6 +133,9 @@ public class Main {
         repository.sort(sorter, comparator);
     }
 
+    /**
+     * Print all contracts to console
+     */
     private static void showContracts() {
         for (Contract c : repository.getContracts()) {
             System.out.println(c);

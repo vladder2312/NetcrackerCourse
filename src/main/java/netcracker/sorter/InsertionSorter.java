@@ -5,6 +5,9 @@ import netcracker.contract.Contract;
 import java.util.Arrays;
 import java.util.Comparator;
 
+/**
+ * Insertion sorter
+ */
 public class InsertionSorter implements ISorter {
 
     @Override

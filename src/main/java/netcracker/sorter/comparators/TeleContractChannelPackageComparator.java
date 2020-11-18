@@ -4,6 +4,9 @@ import netcracker.contract.TeleContract;
 
 import java.util.Comparator;
 
+/**
+ * ChannelPackage comparator
+ */
 public class TeleContractChannelPackageComparator implements Comparator<TeleContract> {
 
     @Override
