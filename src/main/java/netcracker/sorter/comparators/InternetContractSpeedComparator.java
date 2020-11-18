@@ -4,6 +4,9 @@ import netcracker.contract.InternetContract;
 
 import java.util.Comparator;
 
+/**
+ * Internet speed comparator
+ */
 public class InternetContractSpeedComparator implements Comparator<InternetContract> {
 
     @Override

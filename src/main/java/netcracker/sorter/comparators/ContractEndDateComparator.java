@@ -4,6 +4,9 @@ import netcracker.contract.Contract;
 
 import java.util.Comparator;
 
+/**
+ * End date comparator
+ */
 public class ContractEndDateComparator implements Comparator<Contract> {
 
     @Override

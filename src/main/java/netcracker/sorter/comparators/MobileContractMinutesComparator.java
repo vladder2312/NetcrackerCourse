@@ -4,6 +4,9 @@ import netcracker.contract.MobileContract;
 
 import java.util.Comparator;
 
+/**
+ * Minutes comparator
+ */
 public class MobileContractMinutesComparator implements Comparator<MobileContract> {
 
     @Override

@@ -5,6 +5,9 @@ import netcracker.contract.Contract;
 import java.util.Calendar;
 import java.util.Comparator;
 
+/**
+ * Start date comparator
+ */
 public class ContractStartDateComparator implements Comparator<Contract> {
 
     @Override

@@ -4,6 +4,9 @@ import netcracker.contract.MobileContract;
 
 import java.util.Comparator;
 
+/**
+ * MegaBytes comparator
+ */
 public class MobileContractMegaBytesComparator implements Comparator<MobileContract> {
 
     @Override

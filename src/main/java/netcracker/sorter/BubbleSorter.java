@@ -4,6 +4,9 @@ import netcracker.contract.Contract;
 
 import java.util.Comparator;
 
+/**
+ * Bubble sorter
+ */
 public class BubbleSorter implements ISorter {
 
     @Override

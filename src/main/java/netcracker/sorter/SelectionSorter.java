@@ -4,6 +4,9 @@ import netcracker.contract.Contract;
 
 import java.util.Comparator;
 
+/**
+ * Selection sorter
+ */
 public class SelectionSorter implements ISorter {
 
     @Override

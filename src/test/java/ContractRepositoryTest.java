@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 import java.util.Calendar;
 
 /**
- * netcracker.contract.ContractRepository Tester.
+ * ContractRepository Tester
  *
  * @author <Authors name>
  * @since <pre>окт. 22, 2020</pre>
@@ -32,7 +32,7 @@ public class ContractRepositoryTest {
     }
 
     /**
-     * Method: addContract(netcracker.contract.Contract netcracker.contract)
+     * Method: addContract(Contract contract)
      */
     @Test
     public void testAddContract(){
