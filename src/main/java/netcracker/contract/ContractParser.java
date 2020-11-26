@@ -10,8 +10,17 @@ import java.util.Arrays;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+/**
+ * Парсер контрактов из файлов CSV
+ */
 public class ContractParser {
 
+    /**
+     * Reads contracts from a CSV file
+     *
+     * @param reader file reader that has a full path
+     * @return list of contracts
+     */
     public List<Contract> readFile(Reader reader) throws Exception {
         List<Contract> contracts = new ArrayList<>();
         CSVReader csvReader = new CSVReader(reader);
