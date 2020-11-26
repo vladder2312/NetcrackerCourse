@@ -1,6 +1,7 @@
 package netcracker;
 
 import netcracker.contract.*;
+import netcracker.contract.models.Contract;
 import netcracker.sorter.BubbleSorter;
 import netcracker.sorter.ISorter;
 import netcracker.sorter.InsertionSorter;
@@ -10,6 +11,7 @@ import netcracker.sorter.comparators.ContractEndDateComparator;
 import netcracker.sorter.comparators.ContractIdComparator;
 import netcracker.sorter.comparators.ContractStartDateComparator;
 
+import java.io.FileReader;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,7 +20,7 @@ import java.util.function.Predicate;
 
 /**
  * @author Vladislav_Styazhkin
- * @version 1.1
+ * @version 1.2
  */
 public class Main {
 
@@ -33,16 +35,31 @@ public class Main {
     public static void main(String[] args) {
         repository.fillRepository(50);
         while (true) {
-            System.out.print("1. Вывод\n2. Поиск\n3. Сортировка\n4. Выход\n>");
+            System.out.print("1. Вывод\n2. Поиск\n3. Сортировка\n4. Добавить из файла\n5. Выход\n>");
             switch (in.nextInt()) {
                 case 1 -> showContracts();
                 case 2 -> searchDialog();
                 case 3 -> sortDialog();
-                case 4 -> {
+                case 4 -> fromFileDialog();
+                case 5 -> {
                     return;
                 }
                 default -> System.out.println("Ошибка ввода");
             }
+        }
+    }
+
+    /**
+     * Dialog with user to get file path. Adding contracts from a file to the repository.
+     */
+    private static void fromFileDialog() {
+        System.out.print("Введите полный путь к файлу > ");
+        try {
+            for(Contract contract : repository.getParser().readFile(new FileReader(in.next()))){
+                repository.addContract(contract);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

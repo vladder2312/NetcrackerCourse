@@ -1,6 +1,6 @@
 import netcracker.Client;
 import netcracker.Data;
-import netcracker.contract.Contract;
+import netcracker.contract.models.Contract;
 import netcracker.contract.ContractRepository;
 import org.junit.Test;
 import static org.junit.Assert.*;

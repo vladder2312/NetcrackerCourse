@@ -1,6 +1,6 @@
 package netcracker.sorter.comparators;
 
-import netcracker.contract.MobileContract;
+import netcracker.contract.models.MobileContract;
 
 import java.util.Comparator;
 

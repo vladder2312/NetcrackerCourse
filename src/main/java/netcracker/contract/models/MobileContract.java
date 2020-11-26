@@ -1,4 +1,4 @@
-package netcracker.contract;
+package netcracker.contract.models;
 
 import netcracker.Client;
 
@@ -50,6 +50,9 @@ public class MobileContract extends Contract {
                 ", Start date: " + getDateFormat().format(getStartDate().getTime()) +
                 ", End date: " + getDateFormat().format(getEndDate().getTime()) +
                 ", Client: " + getClient() +
+                ", Minutes: " + minutes +
+                ", MegaBytes: " + megaBytes +
+                ", SMS: " + sms +
                 '}';
     }
 }
