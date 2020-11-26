@@ -1,8 +1,7 @@
 package netcracker.sorter.comparators;
 
-import netcracker.contract.Contract;
+import netcracker.contract.models.Contract;
 
-import java.util.Calendar;
 import java.util.Comparator;
 
 /**

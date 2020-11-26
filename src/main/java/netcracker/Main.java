@@ -1,6 +1,7 @@
 package netcracker;
 
 import netcracker.contract.*;
+import netcracker.contract.models.Contract;
 import netcracker.sorter.BubbleSorter;
 import netcracker.sorter.ISorter;
 import netcracker.sorter.InsertionSorter;
@@ -10,6 +11,7 @@ import netcracker.sorter.comparators.ContractEndDateComparator;
 import netcracker.sorter.comparators.ContractIdComparator;
 import netcracker.sorter.comparators.ContractStartDateComparator;
 
+import java.io.FileReader;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,7 +20,7 @@ import java.util.function.Predicate;
 
 /**
  * @author Vladislav_Styazhkin
- * @version 1.1
+ * @version 1.2
  */
 public class Main {
 
@@ -32,6 +34,11 @@ public class Main {
      */
     public static void main(String[] args) {
         repository.fillRepository(50);
+        try {
+            repository.getParser().readFile(new FileReader("d:/contracts.csv"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         while (true) {
             System.out.print("1. Вывод\n2. Поиск\n3. Сортировка\n4. Выход\n>");
             switch (in.nextInt()) {

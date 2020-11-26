@@ -2,6 +2,7 @@ package netcracker.contract;
 
 import netcracker.Client;
 import netcracker.Data;
+import netcracker.contract.models.*;
 import netcracker.sorter.ISorter;
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -17,6 +18,7 @@ public class ContractRepository {
      * Array of contracts
      */
     private Contract[] contracts;
+    private final ContractParser parser = new ContractParser();
 
     /**
      * Amount of contracts in repository
@@ -157,5 +159,9 @@ public class ContractRepository {
             if (found) foundContracts.add(c);
         }
         return foundContracts;
+    }
+
+    public ContractParser getParser() {
+        return parser;
     }
 }

@@ -1,4 +1,4 @@
-package netcracker.contract;
+package netcracker.contract.models;
 
 /**
  * Channel package enumeration

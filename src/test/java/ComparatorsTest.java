@@ -1,4 +1,4 @@
-import netcracker.contract.Contract;
+import netcracker.contract.models.Contract;
 import netcracker.contract.ContractRepository;
 import netcracker.sorter.comparators.ContractClientFioComparator;
 import netcracker.sorter.comparators.ContractEndDateComparator;
