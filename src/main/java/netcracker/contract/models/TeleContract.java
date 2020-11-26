@@ -30,6 +30,7 @@ public class TeleContract extends Contract {
                 ", Start date: " + getDateFormat().format(getStartDate().getTime()) +
                 ", End date: " + getDateFormat().format(getEndDate().getTime()) +
                 ", Client: " + getClient() +
+                ", ChannelPackage: " + channelPackage.toString() +
                 '}';
     }
 }

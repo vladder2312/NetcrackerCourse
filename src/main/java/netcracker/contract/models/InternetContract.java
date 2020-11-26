@@ -34,6 +34,7 @@ public class InternetContract extends Contract {
                 ", Start date: " + getDateFormat().format(getStartDate().getTime()) +
                 ", End date: " + getDateFormat().format(getEndDate().getTime()) +
                 ", Client: " + getClient() +
+                ", Speed: " + speed +
                 '}';
     }
 }
