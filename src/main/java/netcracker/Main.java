@@ -34,22 +34,32 @@ public class Main {
      */
     public static void main(String[] args) {
         repository.fillRepository(50);
-        try {
-            repository.getParser().readFile(new FileReader("d:/contracts.csv"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         while (true) {
-            System.out.print("1. Вывод\n2. Поиск\n3. Сортировка\n4. Выход\n>");
+            System.out.print("1. Вывод\n2. Поиск\n3. Сортировка\n4. Добавить из файла\n5. Выход\n>");
             switch (in.nextInt()) {
                 case 1 -> showContracts();
                 case 2 -> searchDialog();
                 case 3 -> sortDialog();
-                case 4 -> {
+                case 4 -> fromFileDialog();
+                case 5 -> {
                     return;
                 }
                 default -> System.out.println("Ошибка ввода");
             }
+        }
+    }
+
+    /**
+     * Dialog with user to get file path. Adding contracts from a file to the repository.
+     */
+    private static void fromFileDialog() {
+        System.out.print("Введите полный путь к файлу > ");
+        try {
+            for(Contract contract : repository.getParser().readFile(new FileReader(in.next()))){
+                repository.addContract(contract);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
