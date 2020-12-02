@@ -3,6 +3,8 @@ package netcracker.contract;
 import com.opencsv.CSVReader;
 import netcracker.Client;
 import netcracker.contract.models.*;
+import netcracker.validator.ContractValidator;
+import netcracker.validator.ValidationInfo;
 
 import java.io.Reader;
 import java.util.ArrayList;
@@ -11,7 +13,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
- * Парсер контрактов из файлов CSV
+ * Parser of contracts from CSV file
  */
 public class ContractParser {
 
@@ -80,6 +82,10 @@ public class ContractParser {
         }
         reader.close();
         csvReader.close();
+        System.out.println("Validation result:");
+        for (ValidationInfo info : ContractValidator.validate(contracts)) {
+            System.out.println(info);
+        }
         return contracts;
     }
 }
