@@ -2,6 +2,9 @@ package netcracker.validator;
 
 import java.util.List;
 
+/**
+ * Information about validation
+ */
 public class ValidationInfo {
     private long contractId;
     private ValidationStatus status;

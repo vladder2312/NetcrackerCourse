@@ -8,8 +8,16 @@ import netcracker.contract.models.TeleContract;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Contract validator
+ */
 public class ContractValidator {
 
+    /**
+     * Validating list of contract
+     * @param contracts list of contracts to be validated
+     * @return list of contract validation information
+     */
     public static List<ValidationInfo> validate(List<Contract> contracts) {
         List<ValidationInfo> info = new ArrayList<>();
         for (Contract contract : contracts) {
@@ -18,6 +26,11 @@ public class ContractValidator {
         return info;
     }
 
+    /**
+     * Contract validating
+     * @param contract contract for validation
+     * @return validation information
+     */
     public static ValidationInfo validate(Contract contract) {
         ValidationInfo info = new ValidationInfo(ValidationStatus.OK, new ArrayList<>(), contract.getId());
         checkId(contract, info);
@@ -36,6 +49,11 @@ public class ContractValidator {
         return info;
     }
 
+    /**
+     * Validation contract ID
+     * @param contract contract to validate
+     * @param info validation info
+     */
     private static void checkId(Contract contract, ValidationInfo info) {
         if (contract.getId() == 0) {
             info.getMessageList().add("ID value must not be 0");
@@ -48,6 +66,11 @@ public class ContractValidator {
         }
     }
 
+    /**
+     * Validation contract start date
+     * @param contract contract to validate
+     * @param info validation info
+     */
     private static void checkStartDate(Contract contract, ValidationInfo info) {
         if (contract.getStartDate().after(contract.getEndDate())) {
             info.getMessageList().add("Start date after end date");
@@ -60,6 +83,11 @@ public class ContractValidator {
         }
     }
 
+    /**
+     * Validation contract end date
+     * @param contract contract to validate
+     * @param info validation info
+     */
     private static void checkEndDate(Contract contract, ValidationInfo info) {
         if (contract.getEndDate().before(contract.getStartDate())) {
             info.getMessageList().add("End date before start date");
@@ -71,10 +99,20 @@ public class ContractValidator {
         }
     }
 
+    /**
+     * Validation client of the contract
+     * @param contract contract to validate
+     * @param info validation info
+     */
     private static void checkClient(Contract contract, ValidationInfo info) {
         ClientValidator.validate(contract.getClient(), info);
     }
 
+    /**
+     * Validation mobile contract minutes
+     * @param contract contract to validate
+     * @param info validation info
+     */
     private static void checkMinutes(MobileContract contract, ValidationInfo info) {
         if (contract.getMinutes() < 0) {
             info.getMessageList().add("Minutes must not be negative");
@@ -84,6 +122,11 @@ public class ContractValidator {
         }
     }
 
+    /**
+     * Validation mobile contract megabytes
+     * @param contract contract to validate
+     * @param info validation info
+     */
     private static void checkMegaBytes(MobileContract contract, ValidationInfo info) {
         if (contract.getMegaBytes() < 0) {
             info.getMessageList().add("MegaBytes must not be negative");
@@ -93,6 +136,11 @@ public class ContractValidator {
         }
     }
 
+    /**
+     * Validation mobile contract sms
+     * @param contract contract to validate
+     * @param info validation info
+     */
     private static void checkSms(MobileContract contract, ValidationInfo info) {
         if (contract.getSms() < 0) {
             info.getMessageList().add("SMS must not be negative");
@@ -102,6 +150,11 @@ public class ContractValidator {
         }
     }
 
+    /**
+     * Validation speed of internet contract
+     * @param contract contract to validate
+     * @param info validation info
+     */
     private static void checkSpeed(InternetContract contract, ValidationInfo info) {
         if (contract.getSpeed() <= 0) {
             info.getMessageList().add("Internet speed must be greater than 0mb/s");
@@ -111,6 +164,11 @@ public class ContractValidator {
         }
     }
 
+    /**
+     * Validation channel package of television contract
+     * @param contract contract to validate
+     * @param info validation info
+     */
     private static void checkChannelPackage(TeleContract contract, ValidationInfo info) {
         info.getMessageList().add("ChannelPackage value passed validation");
     }
